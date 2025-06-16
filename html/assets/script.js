@@ -2,10 +2,9 @@ const elementList = document.querySelector("#cards-container");
 const searchBar = document.querySelector("#search-bar");
 let pokemonesUnicos = [];
 
-// ✅ URL corregida: Ahora obtiene el JSON desde tu nuevo repositorio en GitHub
 async function fetchData() {
     try {
-        const response = await fetch("https://raw.githubusercontent.com/FranBanda/pokemons.json-/main/pokemons.json"); // 🔥 Nueva URL
+        const response = await fetch("https://raw.githubusercontent.com/FranBanda/pokemons.json-/main/pokemons.json"); 
         if (!response.ok) throw new Error(`Error al obtener los datos: ${response.status}`);
 
         return await response.json();
@@ -15,12 +14,10 @@ async function fetchData() {
     }
 }
 
-// 🔥 Función para eliminar duplicados en la lista de Pokémon
 function eliminarRepetidos(pokemones) {
     return [...new Map(pokemones.map(poke => [poke.name, poke])).values()];
 }
 
-// 🔥 Crear la estructura de la tarjeta de Pokémon
 function crearCard(pokemon) {
     return `
         <div class="card">
@@ -36,12 +33,10 @@ function crearCard(pokemon) {
         </div>`;
 }
 
-// 🔥 Genera las tarjetas en el contenedor
 function listarApi(arreglo) {
     elementList.innerHTML = arreglo.map(crearCard).join('');
 }
 
-// 🔥 Alternar visibilidad de los detalles sin Bootstrap
 elementList.addEventListener("click", event => {
     if (event.target.classList.contains("view-details")) {
         const card = event.target.closest('.card');
@@ -51,7 +46,6 @@ elementList.addEventListener("click", event => {
     }
 });
 
-// 🔥 Aplicación de debounce en la barra de búsqueda para eficiencia
 function debounce(func, delay) {
     let timeout;
     return (...args) => {
@@ -60,13 +54,11 @@ function debounce(func, delay) {
     };
 }
 
-// 🔥 Filtrar Pokémon mientras el usuario escribe en el buscador
 searchBar.addEventListener("input", debounce(() => {
     const texto = searchBar.value.toLowerCase();
     listarApi(pokemonesUnicos.filter(poke => poke.name.toLowerCase().includes(texto)));
 }, 300));
 
-// 🚀 Llamada a la API y carga de datos
 async function llamada_Api() {
     const datosApi = await fetchData();
     if (!datosApi || datosApi.length === 0) {
