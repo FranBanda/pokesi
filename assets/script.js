@@ -4,7 +4,7 @@ let pokemonesUnicos = [];
 
 async function fetchData() {
     try {
-        const response = await fetch("https://raw.githubusercontent.com/FranBanda/pokemons.json-/main/pokemons.json"); // 🔥 Nueva URL
+        const response = await fetch("https://raw.githubusercontent.com/FranBanda/pokemons.json-/main/pokemons.json"); 
         if (!response.ok) throw new Error(`Error al obtener los datos: ${response.status}`);
 
         return await response.json();
