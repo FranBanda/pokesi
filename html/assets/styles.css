@@ -1,10 +1,9 @@
-/* 🔥 Configuración general */
+
 body {
     background-color: #F8F9FA;
     font-family: 'Poppins', sans-serif;
 }
 
-/* 🔥 Contenedor principal */
 .container {
     max-width: 800px;
     margin: auto;
@@ -12,14 +11,12 @@ body {
     text-align: center;
 }
 
-/* 🔥 Título */
 .title {
     font-size: 2rem;
     font-weight: bold;
     color: #FF6347;
 }
 
-/* 🔥 Barra de búsqueda */
 .poke-search {
     width: 100%;
     padding: 10px;
@@ -28,7 +25,6 @@ body {
     border-radius: 8px;
 }
 
-/* 🔥 Estilos de tarjetas */
 .card {
     background-color: #FFE268;
     border: 3px solid #FF6347;
@@ -39,7 +35,6 @@ body {
     transition: 0.3s ease-in-out;
 }
 
-/* 🔥 Imagen de la tarjeta */
 .card-img-top {
     width: 100%;
     max-width: 200px;
@@ -48,7 +43,6 @@ body {
     margin: 10px auto;
 }
 
-/* 🔥 Título dentro de la tarjeta */
 .card-title {
     font-size: 1.2rem;
     font-weight: bold;
@@ -58,12 +52,10 @@ body {
     border-radius: 7px;
 }
 
-/* 🔥 Detalles ocultos por defecto */
 .card-body.hidden {
     display: none;
 }
 
-/* 🔥 Botón para ver detalles */
 .btn-poke {
     background-color: #0096FF;
     color: white;
@@ -79,7 +71,6 @@ body {
     transform: scale(1.05);
 }
 
-/* 🔥 Ajuste de tarjetas en formato responsive */
 #cards-container {
     display: flex;
     flex-wrap: wrap;
